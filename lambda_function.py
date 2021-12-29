@@ -1,6 +1,6 @@
 import json
 import boto3
-import sys
+import employee_db
 import pymysql
 import pymysql.cursors
 
@@ -29,8 +29,8 @@ def lambda_handler(event, context):
     #5 - RDS Database details
     db_host  = "employee-db.ckjx6d5wnbya.ap-south-1.rds.amazonaws.com"
     db_username = "admin" 
-    db_password = "admin1234" 
-    db_name = "sys" 
+    db_password = "admin1234"
+    db_name = "employee_db" 
     connection = None
     
     #6 - Connect to RDS database instance
@@ -42,7 +42,7 @@ def lambda_handler(event, context):
     #7 - Create table in RDS Database (condition: if table not exist)
     try:
         cur = connection.cursor()
-        cur.execute("CREATE TABLE IF NOT EXISTS sys.employees (userId INT NOT NULL, firstName VARCHAR(45) NOT NULL, lastName VARCHAR(45) NOT NULL, jobTitleName VARCHAR(45) NOT NULL, phoneNumber VARCHAR(45) NOT NULL, PRIMARY KEY (userId))")
+        cur.execute("CREATE TABLE IF NOT EXISTS employee_db.employees (userId INT NOT NULL, firstName VARCHAR(45) NOT NULL, lastName VARCHAR(45) NOT NULL, jobTitleName VARCHAR(45) NOT NULL, phoneNumber VARCHAR(45) NOT NULL, PRIMARY KEY (userId))")
         connection.commit()
     except:
         print("ERROR: Could not create table in MySQL instance.")
@@ -56,7 +56,7 @@ def lambda_handler(event, context):
         for emp in empList:
             try:
                 empDict = emp
-                sql = 'INSERT INTO sys.employees (userId,firstName,lastName,jobTitleName,phoneNumber) VALUES(%s,%s,%s,%s,%s)'
+                sql = 'INSERT INTO employee_db.employees (userId,firstName,lastName,jobTitleName,phoneNumber) VALUES(%s,%s,%s,%s,%s)'
                 val = (int(empDict["userId"]),empDict["firstName"],empDict["lastName"],empDict["jobTitleName"],empDict["phoneNumber"])
                 cur.execute(sql,val)
                 connection.commit()
