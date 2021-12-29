@@ -49,7 +49,7 @@ def lambda_handler(event, context):
     
     #8 - Fatch data from S3 bucket and dump into RDS database
     empList = json.loads(data)
-    print(empList,type(empList))
+    print(empList,type(empList)) # Type of empList should be List
     
     with connection.cursor() as cur:
         # Iterate over S3 json file content and insert into MySQL database
