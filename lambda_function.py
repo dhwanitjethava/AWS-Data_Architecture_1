@@ -1,6 +1,6 @@
 import json
 import boto3
-import employee_db
+import sys
 import pymysql
 import pymysql.cursors
 
@@ -49,7 +49,7 @@ def lambda_handler(event, context):
     
     #8 - Fatch data from S3 bucket and dump into RDS database
     empList = json.loads(data)
-    print(empList,type(empList)) # Type of empList should be List
+    print(empList,type(empList))
     
     with connection.cursor() as cur:
         # Iterate over S3 json file content and insert into MySQL database
