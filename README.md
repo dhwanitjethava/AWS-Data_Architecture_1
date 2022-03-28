@@ -4,7 +4,10 @@
 #### 1. Open AWS S3 instance and create a bucket
 
 **Bucket Information**:
-Name - **aws-learning-scaletech**
-Bucket & Objects - **private access**
-AWS Region - **ap-south-1**
+
+> Name - **aws-learning-scaletech**
+
+> Bucket & Objects - **private access**
+
+> AWS Region - **ap-south-1**
 
