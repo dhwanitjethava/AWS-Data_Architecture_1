@@ -18,8 +18,7 @@ Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
 - S3 URI - **s3://aws-learning-scaletech/JSON_files/**  
 
 **3. Properties of S3 bucket** (Event Notifications)
-- Name - **09f29903-9ce3-4728-bad8-47fa925311ba**  <img width="1342" alt="image" src="https://user-images.githubusercontent.com/96478746/160584304-3e6e23f0-0ef9-4ca2-b545-f891dc67dbe3.png">
-
+- Name - **09f29903-9ce3-4728-bad8-47fa925311ba**  
 - Event type - **PUT**  
 - Filters - Prefix: **JSON_files/** | Suffix: **.json**  
 - Destination type - **Lambda function**  
