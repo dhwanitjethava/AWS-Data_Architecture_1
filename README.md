@@ -89,3 +89,5 @@ Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
 - db_name = **employee_db**
 
 #### *Further, please refer lambda_function.py*
+
+##### *Thank you*
