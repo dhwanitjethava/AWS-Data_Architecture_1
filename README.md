@@ -21,3 +21,10 @@ Filters - Prefix: **JSON_files/** | Suffix: **.json**
 Destination type - **Lambda function**  
 Destination - **ReadDataFromS3-JSON**
 
+**4.Create IAM role**  
+Name - **aws-learning-lambda-role-s3-cw**  
+Description - **Allows Lambda functions to call AWSs on your behalf.**   
+Policies - 
+
+    1. CloudWatchFullAccess
+    2. AmazonS3FullAccess
