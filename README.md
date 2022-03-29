@@ -3,6 +3,10 @@
 
 Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
 
+
+<img width="1342" alt="Screen Shot 2022-03-28 at 2 45 38 pm" src="https://user-images.githubusercontent.com/96478746/160584241-d578e3c1-48fe-4998-9c1b-5cd3c9c76d7a.png">
+
+
 **1. Create S3 Bucket**
 
 - Name - **aws-learning-scaletech**  
@@ -14,13 +18,14 @@ Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
 - S3 URI - **s3://aws-learning-scaletech/JSON_files/**  
 
 **3. Properties of S3 bucket** (Event Notifications)
-- Name - **09f29903-9ce3-4728-bad8-47fa925311ba**  
+- Name - **09f29903-9ce3-4728-bad8-47fa925311ba**  <img width="1342" alt="image" src="https://user-images.githubusercontent.com/96478746/160584304-3e6e23f0-0ef9-4ca2-b545-f891dc67dbe3.png">
+
 - Event type - **PUT**  
 - Filters - Prefix: **JSON_files/** | Suffix: **.json**  
 - Destination type - **Lambda function**  
 - Destination - **ReadDataFromS3-JSON**
 
-**4.Create IAM role**  
+**4. Create IAM role**  
 - Name - **aws-learning-lambda-role-s3-cw**  
 - Description - **Allows Lambda functions to call AWSs on your behalf.**   
 - Policies :  
@@ -62,3 +67,26 @@ Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
 - Check the security group configuration for **Inbound** and **Outbound**
 - You have to add rule on **Inbound**
 
+**11. Connect to MySQL Workbench**
+- Open **MySQL Workbench** and Create a **connection**
+- Connection Name - **AWS_RDS**
+- Connection Method - **Standard (TCP/IP)**
+- Hostname - **Endpoint**
+- Port - **3306**
+- Username - **admin**
+- Password - **admin1234**
+
+#### *Java need to install on your machine to work with MySQL workbench*
+
+**12. Open existing role in IAM role**  
+- Existing role - **aws-learning-lambda-role-s3-cw**
+- Attach **AmazonRDSFullAccess** policy to existing **IAM role**
+
+**13. Connect to RDS instance in Lambda function**
+- Configuration as required below:
+- db_host = **AWS RDS Endpoint**
+- db_username = **admin**
+- db_password = **admin1234**
+- db_name = **employee_db**
+
+#### *Further, please refer lambda_function.py*
