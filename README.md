@@ -1,4 +1,3 @@
-
 # AWS Data Architecture
 
 Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
@@ -54,8 +53,8 @@ Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
 - Creation Method - **Easy create**
 - Configuration - **MySQL** (Free tier)
 - DB instance - **<db_instance>**
-- Master Username - **<admin>**
-- Password - **<password>**
+- Master Username - **<**admin**>**
+- Password - **<**password**>**
 - Access - **Public accessibility** 
 
 **10. Make changes in Security Group configuration**  
@@ -69,8 +68,8 @@ Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
 - Connection Method - **Standard (TCP/IP)**
 - Hostname - **Endpoint**
 - Port - **3306**
-- Username - **<admin>**
-- Password - **<password>**
+- Username - **<**admin**>**
+- Password - **<**password**>**
 
 #### *Java need to install on your machine to work with MySQL workbench*
 
@@ -81,9 +80,9 @@ Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
 **13. Connect to RDS instance in Lambda function**
 - Configuration as required below:
 - db_host = **AWS RDS Endpoint**
-- db_username = **<admin>**
-- db_password = **admin1234**
-- db_name = **employee_db**
+- db_username = **<**admin**>**
+- db_password = **<**password**>**
+- db_name = **<database_name>**
 
 #### *Further, please refer lambda_function.py*
 
