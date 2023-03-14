@@ -9,9 +9,9 @@ Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
 
 **1. Create S3 Bucket**
 
-- Name - **aws-learning-scaletech**  
+- Name - **<bucket_name>**  
 - Bucket & Objects - **private access**  
-- AWS Region - **ap-south-1**  
+- AWS Region - **<region_name>**  
 
 **2. Create S3 Bucket**  
 - Create a folder - **JSON_files/(object of S3)**  
