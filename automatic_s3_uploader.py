@@ -9,6 +9,6 @@ client = boto3.client('s3', aws_access_key_id = access_key, aws_secret_access_ke
 for files in os.listdir():
     
     if '.json' in files:
-        upload_file_bucket = 'aws-learning-scaletech'
+        upload_file_bucket = '<bucket_name>'
         upload_file_key = 'JSON_files/' + str(files)
         client.upload_file(files, upload_file_bucket, upload_file_key)
