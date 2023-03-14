@@ -1,9 +1,9 @@
+# Required libraries
 import json
 import boto3
 import sys
 import pymysql
 import pymysql.cursors
-
 
 s3_client = boto3.client('s3')
 
@@ -27,10 +27,10 @@ def lambda_handler(event, context):
     print(data)
 
     #5 - RDS Database details
-    db_host  = "employee-db.ckjx6d5wnbya.ap-south-1.rds.amazonaws.com"
-    db_username = "admin" 
-    db_password = "admin1234"
-    db_name = "employee_db" 
+    db_host  = "<host_name>"
+    db_username = "<username>" 
+    db_password = "<password>"
+    db_name = "<database_name>" 
     connection = None
     
     #6 - Connect to RDS database instance
