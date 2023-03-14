@@ -11,34 +11,31 @@ Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
 
 - Name - **<bucket_name>**  
 - Bucket & Objects - **private access**  
-- AWS Region - **<region_name>**  
-
-**2. Create S3 Bucket**  
+- AWS Region - **<region_name>**
 - Create a folder - **JSON_files/(object of S3)**  
-- S3 URI - **s3://aws-learning-scaletech/JSON_files/**  
+- S3 URI - **<s3_url>**
 
-**3. Properties of S3 bucket** (Event Notifications)
-- Name - **09f29903-9ce3-4728-bad8-47fa925311ba**  
+**3. Properties of S3 bucket** (Event Notifications)  
 - Event type - **PUT**  
 - Filters - Prefix: **JSON_files/** | Suffix: **.json**  
 - Destination type - **Lambda function**  
-- Destination - **ReadDataFromS3-JSON**
+- Destination - **<destination_name>**
 
 **4. Create IAM role**  
-- Name - **aws-learning-lambda-role-s3-cw**  
+- Name - **<name_of_the_role>**  
 - Description - **Allows Lambda functions to call AWSs on your behalf.**   
 - Policies :  
     - **CloudWatchFullAccess** 
     - **AmazonS3FullAccess**
 
 **5. Create Lambda function**  
-- Name - **ReadDataFromS3-JSON**  
+- Name - **<name_of_lambda_function>**  
 - Runtime - **Python 3.8**  
-- Role - **Use existing role** **(aws-learning-lambda-role-s3-cw)**
+- Role - **Use existing role** **(role_for_S3_and_CloudWatch_access)**
 
 **6. Add Lambda Trigger** (Trigger Configuration)
 - Select **S3 trigger**  
-- Select S3 Bucket **aws-learning-scaletech**  
+- Select S3 Bucket **<bucket_name>**  
 - Event type - **PUT**  
 - Prefix: **JSON_files/**  
 - Suffix: **.json**  
@@ -56,9 +53,9 @@ Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
 **9. Create RDS Schema**
 - Creation Method - **Easy create**
 - Configuration - **MySQL** (Free tier)
-- DB instance - **employee-db**
-- Master Username - **admin**
-- Password - **admin1234**
+- DB instance - **<db_instance>**
+- Master Username - **<admin>**
+- Password - **<password>**
 - Access - **Public accessibility** 
 
 **10. Make changes in Security Group configuration**  
@@ -68,23 +65,23 @@ Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
 
 **11. Connect to MySQL Workbench**
 - Open **MySQL Workbench** and Create a **connection**
-- Connection Name - **AWS_RDS**
+- Connection Name - **<name_of_connection>**
 - Connection Method - **Standard (TCP/IP)**
 - Hostname - **Endpoint**
 - Port - **3306**
-- Username - **admin**
-- Password - **admin1234**
+- Username - **<admin>**
+- Password - **<password>**
 
 #### *Java need to install on your machine to work with MySQL workbench*
 
 **12. Open existing role in IAM role**  
-- Existing role - **aws-learning-lambda-role-s3-cw**
+- Existing role - **Use existing role (role_for_S3_and_CloudWatch_access)**
 - Attach **AmazonRDSFullAccess** policy to existing **IAM role**
 
 **13. Connect to RDS instance in Lambda function**
 - Configuration as required below:
 - db_host = **AWS RDS Endpoint**
-- db_username = **admin**
+- db_username = **<admin>**
 - db_password = **admin1234**
 - db_name = **employee_db**
 
