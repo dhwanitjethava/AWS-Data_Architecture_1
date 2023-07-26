@@ -40,7 +40,7 @@ Use of S3, Lambda, RDS, MySQL Workbench, CloudWatch and IAM role
 - Suffix: **.json**  
 
 **7. Verify the event coming in when Lambda trigger**  
-- **Note** - You have to write a code for testing lambda when we upload file in S3 bucket. Please refer GitHub.  
+- **Note** - You have to write a code for testing lambda when we upload file in S3 bucket.  
 
 **8. For verification of Lambda trigger**  
 - Upload file in S3 bucket.
